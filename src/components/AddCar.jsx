@@ -32,7 +32,7 @@ export default function AddCar(props) {
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Button style={{margin: 15}} variant='contained' onClick={handleClickOpen}> Add New Car</Button>
+            <Button style={{margin: 15, backgroundColor: '#007474'}} variant='contained' onClick={handleClickOpen}> Add New Car</Button>
 
             <Dialog open={open}>
                 <DialogTitle> Add New Car </DialogTitle>

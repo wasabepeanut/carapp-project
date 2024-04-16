@@ -8,9 +8,9 @@ function App() {
 
   return (
     <div className='App'>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor: '#13322B'}}>
         <Toolbar>
-          <Typography variant='h6'>Car App</Typography>
+          <Typography variant='h5' >Car App</Typography>
         </Toolbar>
       </AppBar>
       <CarList />
