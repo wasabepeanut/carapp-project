@@ -7,14 +7,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='App'>
       <AppBar position="static">
         <Toolbar>
           <Typography variant='h6'>Car App</Typography>
         </Toolbar>
       </AppBar>
       <CarList />
-    </>
+    </div>
   )
 }
 

@@ -20,12 +20,9 @@ export default function CarList() {
     { field: "model" },
     { field: "color" },
     { field: "fuel" },
-    { field: "year" },
+    { field: "modelYear" },
     { field: "price" },
-
-
-    { cellRenderer: params => <EditCar updateCar={updateCar} params={params}/>, width: 120},
-
+    { cellRenderer: (params) => <EditCar updateCar={updateCar} params={params}/>, width: 120},
     // Cell renderer function that takes params as input
     {
       cellRenderer: (params) => (
@@ -67,7 +64,8 @@ export default function CarList() {
   const deleteCar = (params) => {
     console.log(params.data._links.car.href);
     if (window.confirm("Are you sure")) {
-      fetch(params.data._links.car.href, { method: "DELETE" })
+      fetch(params.data._links.car.href, 
+        { method: "DELETE" })
       .then((response) => {
         if (response.ok) { 
             setOpenSnackbar(true);
@@ -102,27 +100,37 @@ export default function CarList() {
       console.log("parsed JSON = " + data)
       getCars()
     })
-    //.catch(err =>)
+    .catch(err => console.error(err))
   };
 
 
   
-  const updateCar = (car) => {
-    console.log("updateCer")
-    fetch("https://carrestservice-carshop.rahtiapp.fi/cars", {
+  const updateCar = (car, link) => {
+    console.log(link)
+    fetch(link, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(car)
     })
-    .then (response => getCars())
-    //.catch(err =>)
+    .then (response => {
+      if (response.ok) {
+        setMsgSnackbar("editCar response is ok");
+        return response.json
+      } else {
+        throw new Error ("Edit error")
+      }
+    })
+    .then (data => {
+      getCars()
+    })
+    .catch(err => console.error(err))
   };
 
 
   // return
   return (
     <>
-      <div className="ag-theme-material" style={{ width: 1200, height: 700, margin: "auto"}}>
+      <div className="ag-theme-material" style={{ width: 1450, height: 700, margin: "auto"}}>
         <AddCar addCar={addCar}/>
         <AgGridReact
           rowData={cars}

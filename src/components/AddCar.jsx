@@ -31,11 +31,11 @@ export default function AddCar(props) {
     };
 
     return (
-        <div>
-            <Button onClick={handleClickOpen}> Add </Button>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Button style={{margin: 15}} variant='contained' onClick={handleClickOpen}> Add New Car</Button>
 
             <Dialog open={open}>
-                <DialogTitle> Add Car </DialogTitle>
+                <DialogTitle> Add New Car </DialogTitle>
                 <DialogContent>
                     <TextField
                         margin="dense"
