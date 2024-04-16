@@ -9,7 +9,7 @@ export default function AddCar(props) {
         model: '',
         color: '',
         fuel: '',
-        year: '',
+        modelYear: '',
         price: ''
     });
 
@@ -68,8 +68,8 @@ export default function AddCar(props) {
                     <TextField
                         margin="dense"
                         label="Year"
-                        value={car.year}
-                        onChange={(e) => setCar({...car, year: e.target.value})}
+                        value={car.modelYear}
+                        onChange={(e) => setCar({...car, modelYear: e.target.value})}
                         variant="standard"
                     />
                     <TextField
