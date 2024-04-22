@@ -1,9 +1,9 @@
 {
+  "homepage": "https://wasabepeanut.github.io/carapp-project/",
   "name": "carapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://wasabepeanut.github.io/carapp-project/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
